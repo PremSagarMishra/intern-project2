@@ -1,7 +1,7 @@
-// App.tsx
+
 import React from 'react';
-import "./App.css"
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import UserDetailsForm from './Components/UserDetailsForm';
 import SecondPage from './Components/SecondPage';
 
@@ -19,7 +19,7 @@ const App: React.FC = () => {
 const ProtectedRoute: React.FC<{ component: React.FC }> = ({ component: Component, ...rest }) => {
   const hasUserDetails = localStorage.getItem('userDetails');
 
-  return hasUserDetails ? <Component {...rest} /> : <div>You must enter your details before accessing this page.</div>;
+  return hasUserDetails ? <Component {...rest} /> : <Navigate to="/" />;
 };
 
 export default App;

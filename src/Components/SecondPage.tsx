@@ -14,7 +14,6 @@ const SecondPage: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    // Fetch data from the API
     const fetchData = async () => {
       try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -28,7 +27,6 @@ const SecondPage: React.FC = () => {
     fetchData();
   }, []);
 
-  // Define columns for the Data Grid
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'userId', headerName: 'User ID', width: 100 },
